@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Một chuyến đi qua những vì sao. Món quà sinh nhật tuổi 15 Bảo Thi gửi Phương Minh.">
+  <title>Gửi Phương Minh · Một món quà từ Bảo Thi</title>
+  <style>
+    :root { color-scheme:dark; --ink:#0b1020; --cream:#fff4dd; --peach:#ffc3a3; --muted:#a9b2c9; --glow:#bd9bde; }
+    * { box-sizing:border-box; }
+    [hidden] { display:none !important; }
+    html { background:var(--ink); -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+    body { margin:0; color:var(--cream); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    button,summary { font:inherit; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+    button { cursor:pointer; }
+    button:focus-visible,summary:focus-visible { outline:2px solid var(--cream); outline-offset:6px; }
+    h1:focus { outline:none; }
+    ::selection { color:var(--ink); background:var(--peach); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+    .world { position:relative; isolation:isolate; min-height:100svh; overflow:clip; touch-action:manipulation; }
+    .sky { position:fixed; inset:0; z-index:-3; pointer-events:none; background:radial-gradient(ellipse at 50% 58%,#171b3400,#060a15a3); }
+    .sky svg { width:100%; height:100%; opacity:.65; animation:sky-drift 18s ease-in-out infinite alternate; }
+    .sky circle,.sky path { animation:star-twinkle 6.8s ease-in-out infinite; }
+    .sky circle:nth-child(3n) { animation-duration:8.4s; animation-delay:-4.1s; }
+    .sky circle:nth-child(3n + 1) { animation-duration:5.7s; animation-delay:-2.8s; }
+    .sky path { animation-duration:9.2s; animation-delay:-5s; }
+    .aura { position:fixed; width:min(620px,90vw); height:min(620px,90vw); left:50%; top:43%; transform:translate(-50%,-50%); z-index:-2; border-radius:50%; background:radial-gradient(closest-side,var(--glow),transparent); opacity:.2; transition:opacity .6s; pointer-events:none; }
+    .rim { position:fixed; width:82vw; height:82vw; min-width:700px; min-height:700px; border:1px solid #b9b2e80b; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); z-index:-1; pointer-events:none; }
+    .theatre { min-height:100svh; display:grid; grid-template-rows:85px 1fr; padding:env(safe-area-inset-top) max(30px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(30px,env(safe-area-inset-left)); }
+    .topbar { width:min(1280px,100%); margin:auto; display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:85px; border-bottom:1px solid #d0bded14; }
+    .brand-mark { width:25px; height:25px; color:var(--peach); flex-shrink:0; }
+    .sender { font-size:10px; color:var(--muted); letter-spacing:.11em; }
+    .sender strong { color:var(--cream); font-weight:500; }
+    .scene { width:min(980px,100%); margin:auto; padding:15px 0 8px; text-align:center; }
+    .scene:focus-visible { outline:1px dashed #d3bc9f80; outline-offset:8px; border-radius:8px; }
+    .visual { position:relative; width:min(660px,100%); height:345px; margin:0 auto 14px; pointer-events:none; }
+    .mascot { position:absolute; width:245px; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; transition:width .45s,left .45s,top .45s; }
+    .mascot>svg { display:block; width:100%; overflow:visible; filter:drop-shadow(0 0 26px #ffc78c20); }
+    .star-skin { fill:url(#star-color); stroke:#ffe8bf; stroke-width:1; }
+    .body-shine { fill:none; stroke:#fff3d7; stroke-width:3; stroke-linecap:round; opacity:.6; }
+    .face { transition:transform .35s; }
+    .eyes-open { opacity:1; transform-origin:160px 160px; }
+    .eye { fill:#543e4e; }
+    .eye-light { fill:#fff2dc; }
+    .eyes-closed,.eyes-happy,.mouth-surprise { opacity:0; }
+    .eye-line { stroke:#72515a; stroke-width:6; stroke-linecap:round; fill:none; }
+    .mouth { stroke:#9c6063; stroke-width:5; stroke-linecap:round; fill:none; }
+    .cheek { fill:#f49286; opacity:.5; }
+    .star-halo { position:absolute; width:330px; height:330px; border-radius:50%; border:1px solid #ffd29a15; top:50%; left:50%; transform:translate(-50%,-50%); }
+    .star-halo::before,.star-halo::after { content:""; position:absolute; border:1px solid #ffd29a0c; border-radius:50%; inset:25px; }
+    .star-halo::after { inset:-25px; border-style:dashed; border-color:#ffe4ad12; }
+    .orbit-star { position:absolute; color:#eacaa1; font-size:25px; left:23%; top:25%; }
+    .orbit-star.small { font-size:15px; left:auto; right:24%; top:69%; color:#c5b5eb; }
+    .sleep-mark { position:absolute; color:#bdabd7; font-family:"Times New Roman",serif; font-size:27px; left:66%; top:24%; transform:rotate(13deg); }
+    .sleep-mark small { font-size:16px; vertical-align:top; margin-left:8px; }
+    .scene-copy { position:relative; z-index:3; padding-inline:8px; }
+    .eyebrow { color:#d3bc9f; letter-spacing:.21em; font-weight:550; font-size:9px; margin:0 0 17px; line-height:1.8; }
+    h1 { margin:0; font-size:clamp(28px,3.3vw,45px); font-weight:400; line-height:1.28; letter-spacing:-.025em; text-wrap:balance; }
+    .accent { display:block; font-family:"Times New Roman",serif; color:var(--peach); font-style:italic; font-size:1.15em; line-height:1.28; margin-top:3px; text-shadow:0 0 35px #ffb59812; }
+    .note { color:var(--muted); margin:17px auto 0; max-width:440px; font-size:13px; line-height:1.8; text-wrap:balance; }
+    .replay { padding:26px 0 24px; text-align:center; }
+    .read-again { display:flex; margin:20px auto 0; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:28px; border:1px solid #ffe7ca1f; background:#ffe7ca07; border-radius:50px; color:var(--cream); min-width:178px; min-height:50px; padding:13px 23px; font-size:12px; letter-spacing:.035em; transition:transform .2s,background .2s,border-color .2s; }
+    .button.primary { color:#382c3e; background:var(--peach); border-color:var(--peach); font-weight:650; box-shadow:0 4px 30px #ffbd9510; }
+    @media (hover:hover) {
+      .button:hover { background:#ffe7ca13; border-color:#ffe7ca70; transform:translateY(-2px); }
+      .button.primary:hover { background:#ffdac0; }
+      .letter summary:hover .envelope { transform:rotate(-6deg); }
+    }
+    .button[aria-disabled="true"] { opacity:.65; transform:none; cursor:default; }
+    .candle-spark { font-size:18px; font-weight:400; line-height:1; }
+    .gift-art { position:absolute; width:395px; left:57%; top:50%; transform:translate(-50%,-50%); }
+    .gift-art>svg { display:block; width:100%; overflow:visible; }
+    .gift-lid { transform-box:fill-box; transform-origin:center; }
+    .opening .gift-lid { animation:unwrap .4s ease-out both; }
+    .opening .gift-box { animation:box-hop .4s ease both; transform-origin:center; }
+    .age-art { position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); font-family:"Times New Roman",serif; font-style:italic; font-size:310px; line-height:1; color:#ffe0ad; letter-spacing:-.08em; padding-right:.08em; text-shadow:0 0 70px #ffbf7e25; }
+    .age-art::after { content:"TUỔI MỚI ĐÃ MỞ"; display:block; font:9px "Segoe UI",sans-serif; letter-spacing:.35em; margin-top:17px; padding-left:.5em; color:#ddc3a9; }
+    .reveal-ring { position:absolute; width:340px; height:340px; border:1px solid #f4cd9e21; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); }
+    .reveal-ring::after { content:""; position:absolute; border:1px dashed #ffdab127; inset:22px; border-radius:50%; }
+    .joy-decor,.courage-decor,.kindness-decor { position:absolute; width:100%; height:100%; inset:0; overflow:visible; }
+    .joy-decor .petal { transform-box:fill-box; transform-origin:center; animation:unfold .8s ease-out both; }
+    .courage-decor .constellation-line { stroke-dasharray:700; stroke-dashoffset:700; animation:draw-path 1.8s ease-out forwards; }
+    .courage-decor .comet { stroke-dasharray:180; stroke-dashoffset:180; animation:draw-path .9s .2s ease-out forwards; }
+    .kindness-decor .friend { transform-box:fill-box; transform-origin:center; animation:unfold .7s ease both; }
+    .kindness-decor .friend:nth-of-type(2) { animation-delay:.1s; }
+    .kindness-decor .friend:nth-of-type(3) { animation-delay:.2s; }
+    .cake-art { position:absolute; width:430px; max-width:90%; left:50%; top:51%; transform:translate(-50%,-50%); }
+    .cake-art svg { display:block; width:100%; height:auto; overflow:visible; }
+    .flame { transform-box:fill-box; transform-origin:center bottom; animation:flicker 1.5s 6 alternate ease-in-out; }
+    .flame.second { animation-delay:.3s; }
+    .smoke { opacity:0; stroke-dasharray:75; stroke-dashoffset:75; }
+    .candles-out .flame,.candles-out .candle-glow { opacity:0; animation:none; }
+    .candles-out .smoke { animation:smoke .8s ease-out both; }
+    .candle-controls { margin-top:20px; }
+    .candle-controls .button { min-height:47px; min-width:170px; font-size:12px; }
+    .wish-message { min-height:23px; margin:13px auto 0; color:#ffe0b2; font-size:12px; line-height:1.8; }
+    .letter-wrap { width:min(710px,100%); margin:30px auto 0; text-align:left; }
+    .letter { border-radius:13px; background:#fff0da; color:#373043; box-shadow:0 12px 70px #03061240; border:1px solid #fff7e7; }
+    .letter summary { display:flex; align-items:center; gap:20px; list-style:none; padding:25px 28px; cursor:pointer; }
+    .letter summary::-webkit-details-marker { display:none; }
+    .letter summary:focus-visible { outline-color:#76526e; outline-offset:-7px; border-radius:13px; }
+    .envelope { width:64px; height:55px; flex-shrink:0; transition:transform .25s; }
+    .letter-heading { display:block; font-size:23px; font-family:"Times New Roman",serif; font-weight:400; letter-spacing:-.02em; }
+    .letter-hint { display:block; margin-top:6px; font-size:10px; color:#726176; line-height:1.7; }
+    .letter-toggle { display:grid; place-items:center; margin-left:auto; flex-shrink:0; border:1px solid #76526e42; width:34px; height:34px; border-radius:50%; font-size:24px; font-weight:300; transition:transform .25s; }
+    .letter[open] .letter-toggle { transform:rotate(45deg); }
+    .close-text { display:none; }
+    .letter[open] .open-text { display:none; }
+    .letter[open] .close-text { display:inline; }
+    .letter-content { padding:0 44px 35px; color:#5a4d60; font-size:14px; line-height:1.95; }
+    .letter-content::before { content:""; display:block; height:1px; background:#76526e26; margin-bottom:26px; }
+    .letter-content p { margin:0 0 18px; }
+    .letter-content .salutation { color:#373043; font-weight:650; }
+    .letter-content .signature { font-size:32px; font-style:italic; font-family:"Times New Roman",serif; color:#926c62; margin:24px 0 0; }
+    .letter-content .signature small { font-size:14px; }
+    .letter-end { display:flex; justify-content:center; align-items:center; gap:12px; margin-top:28px; font-size:9px; letter-spacing:.17em; color:#a17b6b; }
+    .letter-end::before,.letter-end::after { content:""; width:28px; height:1px; background:#a17b6b4d; }
+    .finale-sign { display:inline-flex; gap:10px; align-items:center; font-size:11px; letter-spacing:.08em; color:#d5bca7; margin-top:22px; }
+    .finale-sign .sign-star { color:var(--peach); font-size:20px; }
+    .effect-layer { position:fixed; inset:0; z-index:4; pointer-events:none; overflow:hidden; }
+    .particle { position:absolute; top:44%; left:50%; width:7px; height:10px; background:var(--color); border-radius:2px; opacity:0; animation:scatter 1.45s var(--delay) cubic-bezier(.15,.6,.35,1) both; }
+    .particle.spark { width:6px; height:6px; border-radius:50%; box-shadow:0 0 9px var(--color); }
+    .particle.petal { width:10px; height:18px; border-radius:80% 0 80% 0; }
+    .paused *,.paused *::before,.paused *::after { animation-play-state:paused !important; }
+
+    [data-scene="intro"] { --glow:#b8a0d7; }
+    [data-scene="intro"] .eyes-open,[data-scene="intro"] .mouth { opacity:0; }
+    [data-scene="intro"] .eyes-closed { opacity:1; }
+    [data-scene="intro"] .mascot { width:215px; opacity:.85; transform:translate(-50%,-50%) rotate(-8deg); }
+    [data-scene="intro"] .visual { height:290px; margin-bottom:23px; }
+    [data-scene="intro"] h1 { font-family:"Times New Roman",serif; font-size:clamp(44px,5vw,65px); letter-spacing:-.045em; }
+    [data-scene="intro"] .accent { display:inline; font-size:1em; }
+    [data-scene="mission"] .mascot>svg { animation:wake .7s ease-out both; }
+    [data-scene="parcel"] .mascot { width:180px; left:25%; top:48%; transform:translate(-50%,-50%) rotate(-10deg); }
+    [data-scene="parcel"] .face { transform:translateX(5px); }
+    [data-scene="parcel"] .mouth { opacity:0; }
+    [data-scene="parcel"] .mouth-surprise { opacity:1; }
+    [data-scene="reveal"] { --glow:#ffd19b; }
+    [data-scene="reveal"] .mascot { width:140px; left:77%; top:60%; transform:translate(-50%,-50%) rotate(13deg); }
+    [data-scene="reveal"] .eyes-open,[data-scene="joy"] .eyes-open,[data-scene="kindness"] .eyes-open,[data-scene="finale"] .eyes-open { opacity:0; }
+    [data-scene="reveal"] .eyes-happy,[data-scene="joy"] .eyes-happy,[data-scene="kindness"] .eyes-happy,[data-scene="finale"] .eyes-happy { opacity:1; }
+    [data-scene="joy"] { --glow:#ffb574; }
+    [data-scene="joy"] .mascot { width:228px; }
+    [data-scene="courage"] { --glow:#82bdf0; }
+    [data-scene="courage"] .face { transform:translate(4px,-5px); }
+    [data-scene="kindness"] { --glow:#bda0dd; }
+    [data-scene="kindness"] .mascot { width:225px; }
+    [data-scene="cake"] { --glow:#eeb28f; }
+    [data-scene="cake"] .visual { height:360px; margin-bottom:10px; }
+    [data-scene="cake"] .mascot { width:118px; left:85%; top:53%; transform:translate(-50%,-50%) rotate(12deg); }
+    [data-scene="cake"] h1 { font-size:35px; }
+    [data-scene="cake"] .accent { display:inline; font-size:1em; }
+    [data-scene="letter"] { --glow:#b9a0cb; }
+    [data-scene="letter"] .scene { padding-block:48px 10px; }
+    [data-scene="letter"] h1 { font-size:35px; }
+    [data-scene="finale"] { --glow:#f7b7a0; }
+    [data-scene="finale"] .age-art { opacity:.14; font-size:340px; top:48%; }
+    [data-scene="finale"] .age-art::after { display:none; }
+    [data-scene="finale"] .mascot { width:235px; transform:translate(-50%,-50%) rotate(-7deg); }
+    [data-scene="finale"] .accent { font-size:1.45em; }
+    [data-scene="finale"] .note { font-size:16px; color:#e5d6cb; }
+    @keyframes wake { from { transform:rotate(-8deg) scale(.92); } 60% { transform:rotate(5deg) scale(1.04); } to { transform:none; } }
+    @keyframes unfold { from { opacity:0; transform:scale(.6) rotate(-8deg); } to { opacity:1; transform:none; } }
+    @keyframes draw-path { to { stroke-dashoffset:0; } }
+    @keyframes unwrap { to { transform:translate(-20px,-110px) rotate(-15deg); opacity:0; } }
+    @keyframes box-hop { 50% { transform:translateY(8px) scale(.97); } }
+    @keyframes flicker { from { transform:rotate(-4deg) scale(.96,1); } to { transform:rotate(4deg) scale(1,.94); } }
+    @keyframes smoke { 20% { opacity:.6; } 75% { opacity:.3; } to { opacity:0; stroke-dashoffset:0; transform:translateY(-15px); } }
+    @keyframes scatter { 5% { opacity:1; } 75% { opacity:.9; } to { opacity:0; transform:translate(var(--dx),var(--dy)) rotate(var(--spin)); } }
+    @keyframes star-twinkle { 0%,100% { opacity:.35; } 50% { opacity:1; } }
+    @keyframes sky-drift { from { transform:translate(-3px,2px); } to { transform:translate(3px,-4px); } }
+    @media (max-width:700px) {
+      .theatre { grid-template-rows:72px 1fr; padding-inline:max(20px,env(safe-area-inset-left)) max(20px,env(safe-area-inset-right)); }
+      .topbar { min-height:72px; gap:12px; }
+      .brand-mark { width:22px; height:22px; }
+      .sender { font-size:8px; letter-spacing:.03em; }
+      .scene { padding-top:26px; }
+      .visual { height:285px; margin-bottom:14px; }
+      .mascot { width:210px; }
+      .star-halo { width:245px; height:245px; }
+      .star-halo::after { inset:-18px; }
+      .orbit-star { left:7%; top:20%; font-size:22px; }
+      .orbit-star.small { right:8%; top:74%; }
+      .sleep-mark { left:77%; top:19%; }
+      [data-scene="intro"] .visual { height:260px; margin-bottom:16px; }
+      [data-scene="intro"] .mascot { width:195px; }
+      [data-scene="intro"] h1 { font-size:42px; }
+      [data-scene="intro"] .accent { display:block; font-size:.85em; margin-top:3px; }
+      .eyebrow { font-size:8px; letter-spacing:.17em; margin-bottom:14px; }
+      h1 { font-size:27px; line-height:1.35; }
+      .accent { font-size:1.12em; line-height:1.35; }
+      .note { font-size:12px; margin-top:14px; max-width:300px; }
+      .replay { padding-top:24px; padding-bottom:22px; }
+      .button { min-height:50px; font-size:12px; min-width:172px; }
+      [data-scene="parcel"] .mascot { width:125px; left:15%; top:48%; }
+      .gift-art { width:285px; left:60%; top:50%; }
+      [data-scene="reveal"] .mascot { width:110px; left:83%; top:63%; }
+      .age-art { font-size:245px; }
+      .age-art::after { font-size:8px; margin-top:13px; letter-spacing:.22em; }
+      .reveal-ring { width:280px; height:280px; }
+      [data-scene="joy"] .mascot,[data-scene="kindness"] .mascot { width:190px; }
+      [data-scene="cake"] .visual { height:275px; }
+      .cake-art { width:310px; max-width:100%; }
+      [data-scene="cake"] .mascot { width:85px; left:87%; top:46%; }
+      [data-scene="cake"] h1 { font-size:26px; }
+      [data-scene="cake"] .accent { display:block; }
+      .candle-controls { margin-top:18px; }
+      .wish-message { font-size:11px; min-height:40px; max-width:300px; }
+      [data-scene="letter"] .scene { padding-top:38px; }
+      [data-scene="letter"] h1 { font-size:27px; }
+      .letter-wrap { margin-top:25px; }
+      .letter summary { gap:14px; padding:21px 17px; }
+      .envelope { width:46px; height:43px; }
+      .letter-heading { font-size:19px; }
+      .letter-hint { font-size:9px; }
+      .letter-toggle { width:29px; height:29px; font-size:21px; }
+      .letter-content { padding:0 23px 27px; font-size:13px; line-height:1.95; }
+      .letter-content::before { margin-bottom:23px; }
+      .letter-content .signature { font-size:30px; }
+      .letter-end { font-size:8px; letter-spacing:.1em; }
+      [data-scene="finale"] .visual { height:275px; }
+      [data-scene="finale"] .mascot { width:205px; }
+      [data-scene="finale"] .age-art { font-size:290px; }
+      [data-scene="finale"] .accent { font-size:1.45em; }
+      [data-scene="finale"] .note { font-size:14px; }
+      .finale-sign { font-size:10px; margin-top:18px; }
+    }
+    @media (max-width:430px) {
+      .theatre { grid-template-rows:60px 1fr; padding-bottom:max(16px,env(safe-area-inset-bottom)); }
+      .topbar { min-height:60px; }
+      .sender { font-size:10px; letter-spacing:.06em; }
+      .scene { padding-block:18px 24px; }
+      .visual { height:clamp(230px,34svh,290px); }
+      .mascot { width:220px; }
+      .star-halo { width:260px; height:260px; }
+      [data-scene="intro"] .visual { height:clamp(220px,31svh,270px); }
+      [data-scene="intro"] .mascot { width:210px; }
+      [data-scene="intro"] h1 { font-size:clamp(40px,11.8vw,48px); }
+      .eyebrow { font-size:10px; letter-spacing:.13em; margin-bottom:12px; }
+      h1 { font-size:clamp(27px,7.2vw,31px); }
+      .note { font-size:14px; line-height:1.75; max-width:320px; }
+      .button { min-height:52px; font-size:14px; padding:14px 24px; }
+      [data-scene="cake"] .visual { height:clamp(255px,35svh,300px); }
+      .cake-art { width:335px; }
+      [data-scene="cake"] h1 { font-size:28px; }
+      .candle-controls .button { min-height:52px; font-size:14px; }
+      .wish-message { font-size:12px; min-height:44px; max-width:320px; }
+      [data-scene="letter"] .scene { padding-top:30px; }
+      .letter-heading { font-size:22px; }
+      .letter-hint { font-size:11px; }
+      .letter-content { font-size:15px; line-height:1.85; }
+      [data-scene="finale"] .visual { height:clamp(230px,31svh,260px); }
+      .finale-sign { font-size:12px; }
+      .replay { padding-top:16px; padding-bottom:20px; }
+    }
+    @media (max-height:760px) and (min-width:701px) {
+      .theatre { grid-template-rows:65px 1fr; }
+      .topbar { min-height:65px; }
+      .visual { height:260px; margin-bottom:8px; }
+      .mascot { width:205px; }
+      .star-halo { width:250px; height:250px; }
+      [data-scene="intro"] .visual { height:230px; margin-bottom:12px; }
+      [data-scene="cake"] .visual { height:265px; }
+      .cake-art { width:330px; }
+      .age-art { font-size:240px; }
+      .reveal-ring { width:265px; height:265px; }
+      .replay { padding-block:16px; }
+      h1 { font-size:33px; }
+      .note { margin-top:12px; }
+    }
+    @media (max-height:700px) and (max-width:700px) {
+      .scene { padding-top:15px; }
+      .visual,[data-scene="intro"] .visual,[data-scene="finale"] .visual { height:210px; }
+      .mascot,[data-scene="intro"] .mascot { width:175px; }
+      [data-scene="cake"] .visual { height:215px; }
+      .cake-art { width:260px; }
+      .star-halo { width:205px; height:205px; }
+      .age-art { font-size:205px; }
+      .reveal-ring { width:220px; height:220px; }
+      [data-scene="reveal"] .mascot { width:90px; }
+      [data-scene="intro"] h1 { font-size:36px; }
+      [data-scene="finale"] .visual { height:180px; }
+      [data-scene="finale"] .mascot { width:185px; }
+      [data-scene="finale"] .age-art { font-size:240px; }
+      [data-scene="finale"] .read-again { margin-top:14px; }
+      [data-scene="finale"] .replay { padding-block:12px; }
+      .replay { padding-top:18px; padding-bottom:16px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation:none !important; transition:none !important; }
+      .constellation-line,.comet { stroke-dashoffset:0 !important; }
+      .effect-layer { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="world" id="world" data-scene="intro">
+    <div class="sky" aria-hidden="true"><svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice"><g fill="#b6bed5"><circle cx="61" cy="181" r="1.3"/><circle cx="146" cy="634" r="1"/><circle cx="202" cy="297" r="1.4"/><circle cx="296" cy="119" r="1"/><circle cx="322" cy="821" r="1.2"/><circle cx="403" cy="492" r=".8"/><circle cx="499" cy="232" r="1.1"/><circle cx="534" cy="743" r="1"/><circle cx="612" cy="84" r=".8"/><circle cx="719" cy="876" r="1.4"/><circle cx="796" cy="206" r="1"/><circle cx="902" cy="618" r="1.3"/><circle cx="972" cy="99" r="1.2"/><circle cx="1046" cy="815" r=".8"/><circle cx="1104" cy="290" r="1.4"/><circle cx="1201" cy="570" r="1.1"/><circle cx="1303" cy="167" r="1.2"/><circle cx="1381" cy="743" r="1.4"/><circle cx="1258" cy="923" r=".7"/><circle cx="81" cy="927" r="1"/></g><g fill="#f8d0a5"><path d="m240 527 1.4 4 4 1.4-4 1.4-1.4 4-1.4-4-4-1.4 4-1.4Z"/><path d="m1190 400 1.4 4 4 1.4-4 1.4-1.4 4-1.4-4-4-1.4 4-1.4Z"/><path d="m1018 707 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></g></svg></div>
+    <div class="aura" aria-hidden="true"></div><div class="rim" aria-hidden="true"></div>
+    <div class="theatre">
+      <header class="topbar">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m16 2 3.5 10.5L30 16l-10.5 3.5L16 30l-3.5-10.5L2 16l10.5-3.5Z" fill="currentColor"/><circle cx="16" cy="16" r="3" fill="#0b1020"/></svg>
+        <div class="sender">MỘT MÓN QUÀ TỪ <strong data-sender>BẢO THI</strong></div>
+      </header>
+
+      <main class="scene" id="scene" tabindex="0" aria-labelledby="story-title" aria-describedby="interaction-help">
+        <p class="sr-only" id="interaction-help">Chạm hoặc click vào trang, hoặc nhấn Enter hay phím cách để sang cảnh tiếp theo. Các nút và lá thư có thao tác riêng. Ở cảnh cuối, dùng nút Xem lại từ đầu để bắt đầu lại.</p>
+        <div class="visual" id="visual" aria-hidden="true">
+          <div class="star-halo" id="star-halo"></div>
+          <span class="orbit-star" id="orbit-star">✧</span><span class="orbit-star small" id="orbit-small">✦</span>
+          <div class="sleep-mark" id="sleep-mark">z<small>z</small></div>
+          <div class="reveal-ring" id="reveal-ring" hidden></div>
+          <div class="age-art" id="age-art" hidden><span data-age>15</span></div>
+
+          <svg class="joy-decor" id="joy-decor" viewBox="0 0 660 345" hidden>
+            <g fill="#efbb83" opacity=".3"><ellipse class="petal" cx="330" cy="49" rx="12" ry="30"/><ellipse class="petal" cx="330" cy="296" rx="12" ry="30"/><ellipse class="petal" cx="198" cy="172" rx="30" ry="12"/><ellipse class="petal" cx="463" cy="172" rx="30" ry="12"/><ellipse class="petal" cx="234" cy="78" rx="12" ry="27" transform="rotate(-45 234 78)"/><ellipse class="petal" cx="426" cy="78" rx="12" ry="27" transform="rotate(45 426 78)"/><ellipse class="petal" cx="234" cy="266" rx="12" ry="27" transform="rotate(45 234 266)"/><ellipse class="petal" cx="426" cy="266" rx="12" ry="27" transform="rotate(-45 426 266)"/></g>
+            <circle cx="330" cy="172" r="142" stroke="#eabe7d" stroke-opacity=".18" stroke-dasharray="2 9"/><g fill="#f0bf96"><circle cx="140" cy="120" r="4"/><circle cx="516" cy="241" r="3"/><circle cx="494" cy="70" r="2"/></g>
+          </svg>
+          <svg class="courage-decor" id="courage-decor" viewBox="0 0 660 345" fill="none" hidden>
+            <path class="constellation-line" d="m119 270 85-96 122 76 99-155 121 37" stroke="#99b9e7" stroke-opacity=".6"/>
+            <g fill="#c4e6ff"><circle cx="119" cy="270" r="4"/><circle cx="204" cy="174" r="3"/><circle cx="326" cy="250" r="4"/><circle cx="425" cy="95" r="4"/><circle cx="546" cy="132" r="3"/></g>
+            <path d="M143 282c95 30 280 14 373-98" stroke="#99b9e7" stroke-opacity=".17" stroke-dasharray="2 8"/>
+            <path class="comet" d="m433 62 88-38" stroke="#b9d4ff" stroke-width="1.5"/><path d="m523 15 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#e6edff"/>
+          </svg>
+          <svg class="kindness-decor" id="kindness-decor" viewBox="0 0 660 345" fill="none" hidden>
+            <defs><g id="little-friend"><path d="M0-39 12-15 39-10 21 10 23 37 0 25-23 37-21 10-39-10-12-15Z" fill="currentColor" stroke="#fff0dc" stroke-opacity=".4"/><path d="M-15-1q5-7 10 0M5-1q5-7 10 0M-5 10q5 5 10 0" stroke="#65506e" stroke-width="2.5" stroke-linecap="round"/></g></defs>
+            <ellipse cx="330" cy="182" rx="234" ry="111" stroke="#c9b5e8" stroke-opacity=".2" transform="rotate(-9 330 182)"/>
+            <g class="friend" color="#c8b4e3"><use href="#little-friend" transform="translate(120 150) rotate(-16)"/></g>
+            <g class="friend" color="#a4c8c8"><use href="#little-friend" transform="translate(534 189) rotate(15) scale(.87)"/></g>
+            <g class="friend" color="#e4b698"><use href="#little-friend" transform="translate(440 61) rotate(12) scale(.56)"/></g>
+            <path d="m211 286 3 8 8 3-8 3-3 8-3-8-8-3 8-3ZM510 98l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill="#edd2bb"/>
+          </svg>
+
+          <div class="gift-art" id="gift-art" hidden><svg viewBox="0 0 560 530" fill="none">
+            <defs>
+              <radialGradient id="gift-halo"><stop stop-color="#9a7294" stop-opacity=".16"/><stop offset="1" stop-color="#9a7294" stop-opacity="0"/></radialGradient>
+              <linearGradient id="box-front" x1="170" y1="260" x2="400" y2="455" gradientUnits="userSpaceOnUse"><stop stop-color="#9b9abb"/><stop offset="1" stop-color="#686d9c"/></linearGradient>
+              <linearGradient id="ribbon" x1="180" y1="140" x2="300" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe2ae"/><stop offset="1" stop-color="#dda578"/></linearGradient>
+            </defs>
+            <circle cx="285" cy="263" r="245" fill="url(#gift-halo)"/>
+            <circle cx="285" cy="266" r="202" stroke="#e6c482" stroke-opacity=".12" stroke-dasharray="2 9"/>
+            <ellipse cx="285" cy="274" rx="235" ry="104" transform="rotate(-28 285 274)" stroke="#e6c482" stroke-opacity=".22"/>
+            <path d="M74 142V183M54 162H94M438 349V379M423 364H453" stroke="#e6c482" stroke-width="1.3"/>
+            <path d="m448 115 7 20 20 7-20 7-7 20-7-20-20-7 20-7Z" fill="#f1ce91"/>
+            <path d="m112 338 4 12 12 4-12 4-4 12-4-12-12-4 12-4ZM364 56l4 12 12 4-12 4-4 12-4-12-12-4 12-4Z" fill="#e6c482"/>
+            <circle cx="145" cy="110" r="3" fill="#ffb598"/><circle cx="472" cy="274" r="3" fill="#d3c5e6"/><circle cx="197" cy="435" r="2" fill="#e6c482"/><circle cx="83" cy="277" r="2" fill="#e6c482"/>
+            <path d="m401 420 6 6-6 6-6-6Z" stroke="#e6c482"/><path d="m223 82 4 4-4 4-4-4Z" stroke="#cabfdb"/>
+            <ellipse cx="285" cy="443" rx="138" ry="17" fill="#090e22" fill-opacity=".5"/>
+            <g class="gift-box">
+              <path d="m169 260 210-27 32 182-210 28Z" fill="url(#box-front)"/>
+              <path d="m379 233 48 35-16 147-32-182Z" fill="#525a89"/>
+              <path d="m250 250 44-6 32 188-44 6Z" fill="url(#ribbon)"/>
+              <path d="m169 260 210-27 3 19-210 28Z" fill="#242c50" fill-opacity=".17"/>
+              <path d="m194 294 8 111M214 422l43-6" stroke="#d2c8e6" stroke-opacity=".2"/>
+              <path d="m354 297 25 5-11 47-30-7Z" fill="#fff0d9" transform="rotate(-7 354 297)"/>
+              <path d="m352 277 10 23" stroke="#e6c482"/><path d="m357 314 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z" fill="#b47f64"/>
+            </g>
+            <g class="gift-lid">
+              <path d="m158 242 217-29 52 37-217 30Z" fill="#b5aecb"/>
+              <path d="m158 242 217-29 5 35-216 30Z" fill="#a49dbf"/>
+              <path d="m375 213 52 37-3 33-44-35Z" fill="#777ca8"/>
+              <path d="m240 231 44-6 52 37-44 6Z" fill="#ffe0ae"/>
+              <path d="m240 231 44-6 6 35-44 6Z" fill="url(#ribbon)"/>
+              <path d="M270 230c-63-8-103-62-81-84 24-26 65 23 81 84Z" fill="#edb890" stroke="#fcd9ad" stroke-width="3"/>
+              <path d="M269 230c-43-14-74-49-65-57 13-12 46 18 65 57Z" fill="#b47c75"/>
+              <path d="M269 230c-3-72 36-119 61-96 28 26-3 76-61 96Z" fill="#ffddb1" stroke="#ffe6bd" stroke-width="3"/>
+              <path d="M270 230c10-46 31-77 43-69 12 8-4 45-43 69Z" fill="#ce997e"/>
+              <path d="M271 224c-3 29-19 54-36 62l-3-21-21-3c22-10 35-25 43-46Z" fill="url(#ribbon)"/>
+              <path d="M282 219c4 24 21 36 44 42l-17 14 6 20c-36-16-50-38-50-67Z" fill="#f0bc91"/>
+              <ellipse cx="270" cy="226" rx="17" ry="14" transform="rotate(-8 270 226)" fill="#ffddb1"/>
+            </g>
+            <path d="M407 86c17-18 24-11 18 2s-15 26-6 33" stroke="#b1a5ce" stroke-width="3" stroke-linecap="round"/>
+            <path d="M126 409c-18-4-25 7-15 13s18 2 17 14" stroke="#ffb598" stroke-width="3" stroke-linecap="round"/>
+          </svg></div>
+          <div class="cake-art" id="cake-art" hidden><svg viewBox="70 155 430 365" fill="none" aria-hidden="true">
+              <defs>
+                <radialGradient id="cake-halo"><stop stop-color="#a3849e" stop-opacity=".14"/><stop offset="1" stop-color="#a3849e" stop-opacity="0"/></radialGradient>
+                <radialGradient id="flame-halo"><stop stop-color="#ffc67f" stop-opacity=".4"/><stop offset="1" stop-color="#ffc67f" stop-opacity="0"/></radialGradient>
+                <linearGradient id="cake-side" x1="151" y1="306" x2="414" y2="418" gradientUnits="userSpaceOnUse"><stop stop-color="#edb0a1"/><stop offset=".5" stop-color="#f5c2ad"/><stop offset="1" stop-color="#ca8790"/></linearGradient>
+                <linearGradient id="icing" x1="154" y1="270" x2="416" y2="310" gradientUnits="userSpaceOnUse"><stop stop-color="#fff0d3"/><stop offset="1" stop-color="#f3d7ba"/></linearGradient>
+                <linearGradient id="stand" x1="253" y1="425" x2="321" y2="502" gradientUnits="userSpaceOnUse"><stop stop-color="#a8a4c8"/><stop offset="1" stop-color="#646b9a"/></linearGradient>
+                <linearGradient id="number-wax" x1="254" y1="200" x2="308" y2="270" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe6b3"/><stop offset="1" stop-color="#e4ac7d"/></linearGradient>
+              </defs>
+              <circle cx="285" cy="290" r="245" fill="url(#cake-halo)"/>
+              <circle cx="285" cy="274" r="214" stroke="#e6c482" stroke-opacity=".13" stroke-dasharray="2 9"/>
+              <text x="285" y="280" text-anchor="middle" fill="#e6c482" fill-opacity=".035" stroke="#e6c482" stroke-opacity=".16" stroke-width="1" font-family="Georgia,serif" font-size="268" font-style="italic" data-age>15</text>
+              <path d="M73 189V225M55 207H91" stroke="#e6c482" stroke-width="1.2"/>
+              <path d="m441 131 7 22 22 7-22 7-7 22-7-22-22-7 22-7Z" fill="#f2d29b"/>
+              <path d="m108 370 5 15 15 5-15 5-5 15-5-15-15-5 15-5Z" fill="#e6c482"/>
+              <path d="m416 367 4 12 12 4-12 4-4 12-4-12-12-4 12-4Z" fill="#ad9bc6"/>
+              <circle cx="144" cy="137" r="3" fill="#ffb598"/><circle cx="470" cy="276" r="2.5" fill="#e6c482"/><circle cx="200" cy="68" r="2" fill="#e6c482"/><circle cx="357" cy="86" r="2" fill="#d7cee6"/>
+              <path d="m82 304 5 5-5 5-5-5Z" stroke="#a399b8"/><path d="m385 444 5 5-5 5-5-5Z" stroke="#e6c482"/>
+              <path d="M447 216c14-12 22-5 13 6s-12 20-2 24" stroke="#ffb598" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M141 102c-14-5-24 7-12 13s12 13 3 20" stroke="#a99ac4" stroke-width="2.5" stroke-linecap="round"/>
+              <ellipse cx="284" cy="505" rx="124" ry="13" fill="#0a1023" fill-opacity=".5"/>
+              <path d="M260 427h50l-7 45c0 8 14 14 27 18v8h-91v-8c14-4 29-10 28-18Z" fill="url(#stand)"/>
+              <ellipse cx="284" cy="493" rx="48" ry="10" fill="#9494b9"/>
+              <ellipse cx="284" cy="425" rx="159" ry="29" fill="#6d759f"/>
+              <ellipse cx="284" cy="418" rx="159" ry="28" fill="#b8b0ce"/>
+              <ellipse cx="284" cy="414" rx="146" ry="24" fill="#d2c3db"/>
+              <path d="M151 304h266v82c0 30-59 51-133 51s-133-21-133-51Z" fill="url(#cake-side)"/>
+              <path d="M151 351c56 34 203 34 266 0v17c-64 34-210 33-266 0Z" fill="#f9d3b9"/>
+              <path d="M151 389c55 36 204 38 266 0" stroke="#e1a194" stroke-width="3"/>
+              <path d="M151 304v26c0 16 19 20 22 5v-5c0-10 14-9 14 1v18c0 18 22 19 22 0v-7c0-10 17-9 17 2v13c0 21 25 23 25 1v-9c0-11 17-11 17 0v22c0 19 25 20 25 0v-15c0-12 17-12 17-1v9c0 19 23 19 23 0v-18c0-11 17-11 17-1v5c0 20 23 19 23 0v-19c0-12 17-12 17-1v3c0 18 27 14 27-6v-23Z" fill="url(#icing)"/>
+              <ellipse cx="284" cy="302" rx="133" ry="47" fill="#fff0d6"/>
+              <ellipse cx="284" cy="301" rx="116" ry="37" stroke="#e8c7ae" stroke-width="1.3" stroke-dasharray="2 6"/>
+              <g fill="#b298c5">
+                <path d="m196 286 4-7 5 8-4 8Z"/><path d="m359 286 4-7 5 8-4 8Z"/>
+                <circle cx="233" cy="321" r="3"/><circle cx="330" cy="322" r="3"/>
+              </g>
+              <g fill="#edac8c"><circle cx="184" cy="303" r="3"/><circle cx="384" cy="303" r="3"/><path d="m259 330 2-5 2 5 5 2-5 2-2 5-2-5-5-2ZM311 281l2-5 2 5 5 2-5 2-2 5-2-5-5-2Z"/></g>
+              <g fill="#fff1da"><circle cx="182" cy="388" r="5"/><circle cx="215" cy="402" r="5"/><circle cx="251" cy="410" r="5"/><circle cx="288" cy="413" r="5"/><circle cx="325" cy="410" r="5"/><circle cx="361" cy="401" r="5"/><circle cx="392" cy="388" r="5"/></g>
+              <path d="m210 340 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1ZM354 342l3 7 8 1-6 5 2 8-7-4-7 4 1-8-5-5 8-1Z" fill="#e5b47b"/>
+              <path d="M251 294v17M307 294v17" stroke="#ad7c75" stroke-width="3"/>
+              <text x="280" y="298" text-anchor="middle" font-family="Georgia,serif" font-size="91" font-weight="bold" fill="url(#number-wax)" stroke="#d5a77a" stroke-width="1.5" paint-order="stroke" data-age>15</text>
+              <path d="M251 230v-9M302 230v-9" stroke="#665047" stroke-width="2.5" stroke-linecap="round"/>
+              <g class="candle-glow"><circle cx="251" cy="206" r="34" fill="url(#flame-halo)"/><circle cx="302" cy="206" r="34" fill="url(#flame-halo)"/></g>
+              <g class="flame"><path d="M251 222c-16-2-11-15 1-31 0 12 13 17 7 27-2 3-4 4-8 4Z" fill="#ffd88f"/><path d="M252 222c-7-1-6-8 0-15 0 6 7 10 0 15Z" fill="#fff4cc"/></g>
+              <g class="flame second"><path d="M302 222c-15-2-11-15 1-31 0 12 13 17 7 27-2 3-4 4-8 4Z" fill="#ffd88f"/><path d="M303 222c-7-1-6-8 0-15 0 6 7 10 0 15Z" fill="#fff4cc"/></g>
+              <path class="smoke" d="M252 220c-13-13 13-19 1-32s0-17 3-23" stroke="#d2c5d8" stroke-width="2" stroke-linecap="round"/>
+              <path class="smoke" d="M303 220c-11-12 12-18 2-30s-1-18 2-23" stroke="#d2c5d8" stroke-width="2" stroke-linecap="round"/>
+            </svg></div>
+
+          <div class="mascot" id="mascot">
+            <svg viewBox="0 0 320 320" fill="none">
+              <defs><linearGradient id="star-color" x1="110" y1="60" x2="208" y2="276" gradientUnits="userSpaceOnUse"><stop stop-color="#fff0be"/><stop offset=".55" stop-color="#f8d3a0"/><stop offset="1" stop-color="#e9a681"/></linearGradient></defs>
+              <ellipse cx="160" cy="285" rx="70" ry="9" fill="#050916" opacity=".35"/>
+              <path class="star-skin" d="M160 35c12 0 19 45 35 61l52 3c31 2 28 20 10 40l-35 38 12 59c7 31-14 41-35 28l-39-23-39 23c-21 13-42 3-35-28l12-59-35-38c-18-19-21-38 10-40l52-3c16-16 23-61 35-61Z"/>
+              <path class="body-shine" d="m148 65-15 39-42 5M99 222l-3 16"/>
+              <g class="face">
+                <g class="eyes-open"><rect class="eye" x="122" y="141" width="18" height="29" rx="9"/><rect class="eye" x="180" y="141" width="18" height="29" rx="9"/><ellipse class="eye-light" cx="128" cy="149" rx="3" ry="4"/><ellipse class="eye-light" cx="186" cy="149" rx="3" ry="4"/></g>
+                <g class="eyes-closed"><path class="eye-line" d="M119 163q10 7 22 0M179 163q10 7 22 0"/></g>
+                <g class="eyes-happy"><path class="eye-line" d="M119 158q11-17 23 0M178 158q11-17 23 0"/></g>
+                <ellipse class="cheek" cx="111" cy="179" rx="13" ry="7"/><ellipse class="cheek" cx="209" cy="179" rx="13" ry="7"/>
+                <path class="mouth" d="M150 181q10 12 20 0"/>
+                <ellipse class="mouth-surprise" cx="160" cy="185" rx="7" ry="9" fill="#9c6063"/>
+              </g>
+              <path d="m241 74 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#ffe2b7"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="scene-copy" id="scene-copy">
+          <p class="eyebrow" id="eyebrow">MỘT BẤT NGỜ ĐANG THỨC GIẤC</p>
+          <h1 id="story-title" tabindex="-1"><span id="title-main">Phương Minh</span> <span class="accent" id="title-accent">ơi…</span></h1>
+          <p class="note" id="scene-note">Có một ngôi sao nhỏ đang chờ cậu. Chạm vào trang để đánh thức nhé.</p>
+          <div class="candle-controls" id="candle-controls" hidden>
+            <button class="button primary" id="candle-button" type="button" aria-controls="wish-message"><span id="candle-label">Thổi nến</span><span class="candle-spark" aria-hidden="true">✧</span></button>
+            <p class="wish-message" id="wish-message" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <div class="finale-sign" id="finale-sign" hidden><span class="sign-star" aria-hidden="true">✧</span>Một món quà từ <span data-sender>Bảo Thi</span></div>
+          <button class="button read-again" id="read-again" type="button" hidden>Đọc lại thư</button>
+        </div>
+
+        <div class="letter-wrap" id="letter-wrap" hidden>
+          <details class="letter" id="letter">
+            <summary><svg class="envelope" viewBox="0 0 80 65" fill="none" aria-hidden="true"><path d="m9 19 32-15 32 22-8 32-61-9Z" fill="#e5b596"/><path d="m9 19 64 7-8 32-61-9Z" fill="#f0c8a5" stroke="#b68a71"/><path d="m5 48 28-19 33 29" stroke="#b68a71"/><path d="m9 19 29 24 35-17" fill="#f6d6b5" stroke="#b68a71"/><circle cx="39" cy="39" r="9" fill="#a88caa"/><path d="m39 33 1.5 4.5L45 39l-4.5 1.5L39 45l-1.5-4.5L33 39l4.5-1.5Z" fill="#fff0d9"/></svg><span><strong class="letter-heading"><span class="open-text">Đọc lời chúc</span><span class="close-text">Gấp thư lại</span></strong><span class="letter-hint">Gửi <span data-name>Phương Minh</span> · Từ <span data-sender>Bảo Thi</span></span></span><span class="letter-toggle" aria-hidden="true">+</span></summary>
+            <!-- SỬA LỜI CHÚC: chỉnh các đoạn văn ở đây; tên, tuổi và người gửi được điền từ birthday bên dưới. -->
+            <div class="letter-content">
+              <p class="salutation"><span data-name>Phương Minh</span> ơi, chúc mừng sinh nhật tuổi <span data-age>15</span>!</p>
+              <p>Chúc cậu có thật nhiều ngày vui, gặp những người tử tế và đủ tự tin để thử những điều mình thích. Mong tuổi mới có những lần cười thật đã, những điều nhỏ xíu mà đáng nhớ và cả những lúc cậu thấy tự hào vì chính mình.</p>
+              <p>Không cần phải biết hết tương lai sẽ ra sao. Cứ lớn lên theo cách của cậu, từng chút một cũng được.</p>
+              <p>Hôm nay thì ăn bánh, nhận quà và tận hưởng sinh nhật thật vui nhé!</p>
+              <p class="signature"><small>—</small> <span data-sender>Bảo Thi</span></p>
+              <div class="letter-end" aria-hidden="true">GỬI CẬU MỘT TUỔI MỚI LẤP LÁNH</div>
+            </div>
+          </details>
+        </div>
+      </main>
+
+      <footer class="replay" id="replay" hidden>
+        <button class="button primary" id="replay-button" type="button">Xem lại từ đầu</button>
+      </footer>
+    </div>
+    <div class="effect-layer" id="effects" aria-hidden="true"></div>
+  </div>
+  <noscript><p style="padding:20px;text-align:center">Hãy bật JavaScript trong trình duyệt để đánh thức ngôi sao và mở món quà nhé.</p></noscript>
+  <script>
+    // SỬA TÊN, TUỔI, NGƯỜI GỬI tại đây. Không cần tìm sửa từng chỗ trong trang.
+    const birthday = { name:'Phương Minh', age:15, sender:'Bảo Thi' };
+    document.querySelectorAll('[data-name]').forEach(el => { el.textContent = birthday.name; });
+    document.querySelectorAll('[data-age]').forEach(el => { el.textContent = birthday.age; });
+    document.querySelectorAll('[data-sender]').forEach(el => { el.textContent = birthday.sender; });
+    document.title = `Gửi ${birthday.name} · Một món quà từ ${birthday.sender}`;
+    document.querySelector('meta[name="description"]').content = `Một món quà sinh nhật tuổi ${birthday.age} ${birthday.sender} gửi ${birthday.name}.`;
+
+    // SỬA LỜI DẪN ngắn ở từng cảnh bên dưới. Lời chúc dài nằm trong .letter-content.
+    const scenes = [
+      { key:'intro', eyebrow:'MỘT BẤT NGỜ ĐANG THỨC GIẤC', title:birthday.name, accent:'ơi…', note:'Có một ngôi sao nhỏ đang chờ cậu. Chạm vào trang để đánh thức nhé.' },
+      { key:'mission', eyebrow:'Ồ, CẬU ĐẾN RỒI!', title:'Tớ có một nhiệm vụ', accent:'đặc biệt.', note:'Đi cùng tớ một chút nhé? Có một điều rất đáng mong chờ.' },
+      { key:'parcel', eyebrow:'CHUYẾN GIAO QUÀ ĐẶC BIỆT', title:`${birthday.sender} nhờ tớ gửi cậu`, accent:'một món quà.', note:'Đã gói ghém thật nhiều niềm vui vào trong này rồi. Cậu mở thử nhé?' },
+      { key:'reveal', eyebrow:'BẤT NGỜ DÀNH RIÊNG CHO CẬU', title:'Cậu vừa mở khóa', accent:`tuổi ${birthday.age} rồi đó!`, note:`Chúc mừng sinh nhật, ${birthday.name}!` },
+      { key:'joy', eyebrow:'ĐIỀU ĐẦU TIÊN TỚ MONG', title:'Chúc cậu có', accent:'thật nhiều ngày vui.', note:'Cả những niềm vui nhỏ xíu, nhưng đủ làm một ngày bừng sáng.' },
+      { key:'courage', eyebrow:'RỒI THÊM MỘT CHÚT LẤP LÁNH', title:'Có đủ tự tin để thử', accent:'những điều mình thích.', note:'Cứ bước từng chút một. Những điều mới đang chờ cậu ở phía trước.' },
+      { key:'kindness', eyebrow:'TRÊN HÀNH TRÌNH LỚN LÊN', title:'Và luôn có', accent:'những người tử tế ở bên.', note:'Để những ngày bình thường cũng trở nên ấm áp hơn một chút.' },
+      { key:'cake', eyebrow:`MỘT KHOẢNH KHẮC CHO TUỔI ${birthday.age}`, title:'Một điều ước', accent:`cho tuổi ${birthday.age} nhé?`, note:'Nhắm mắt một chút, ước một điều, rồi thổi nến nhé.' },
+      { key:'letter', eyebrow:'CÒN MỘT ĐIỀU NỮA…', title:'Có vài lời chúc,', accent:`${birthday.sender} muốn gửi cậu.`, note:'Một lá thư nhỏ. Cậu cứ mở ra và đọc thật chậm nhé.' },
+      { key:'finale', eyebrow:'DÀNH RIÊNG CHO CẬU', title:'Chúc mừng sinh nhật', accent:birthday.name, note:`Tuổi ${birthday.age} thật đáng nhớ nhé!` }
+    ];
+
+    const world = document.getElementById('world');
+    const scene = document.getElementById('scene');
+    const title = document.getElementById('story-title');
+    const visual = document.getElementById('visual');
+    const replay = document.getElementById('replay');
+    const replayButton = document.getElementById('replay-button');
+    const readAgain = document.getElementById('read-again');
+    const letter = document.getElementById('letter');
+    const cake = document.getElementById('cake-art');
+    const candleButton = document.getElementById('candle-button');
+    const candleLabel = document.getElementById('candle-label');
+    const wishMessage = document.getElementById('wish-message');
+    const effects = document.getElementById('effects');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let lastAdvance = -Infinity;
+    let lastCandle = -Infinity;
+    let candlesLit = true;
+    let candleBusy = false;
+    let opening = false;
+    let openTimer, candleTimer, effectTimer;
+    let entrance;
+    let pausedAnimations = [];
+
+    function clearEffects() {
+      clearTimeout(effectTimer);
+      effects.replaceChildren();
+    }
+
+    function burst(kind, count) {
+      clearEffects();
+      if (reducedMotion.matches || document.hidden) return;
+      const colors = ['#ffc49e','#e1ca95','#b9abd9','#c2e0d9'];
+      // ponytail: tối đa 36 hạt trong mỗi lượt; CSS chạy hữu hạn, không canvas hay vòng lặp khung hình.
+      for (let i = 0; i < Math.min(count, 36); i++) {
+        const particle = document.createElement('i');
+        particle.className = `particle ${kind}`;
+        const angle = (Math.PI * 2 * i / count) + Math.random() * .3;
+        const distance = 80 + Math.random() * Math.min(innerWidth * .4, 370);
+        particle.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+        particle.style.setProperty('--dy', `${Math.sin(angle) * distance * .8}px`);
+        particle.style.setProperty('--spin', `${Math.random() * 500 - 250}deg`);
+        particle.style.setProperty('--delay', `${Math.random() * .12}s`);
+        particle.style.setProperty('--color', colors[i % colors.length]);
+        effects.append(particle);
+      }
+      effectTimer = setTimeout(clearEffects, 1650);
+    }
+
+    function resetCandles() {
+      clearTimeout(candleTimer);
+      candlesLit = true;
+      candleBusy = false;
+      lastCandle = -Infinity;
+      cake.classList.remove('candles-out');
+      candleButton.removeAttribute('aria-disabled');
+      candleLabel.textContent = 'Thổi nến';
+      wishMessage.textContent = '';
+    }
+
+    function showScene(index, focus = true) {
+      clearTimeout(openTimer);
+      clearTimeout(candleTimer);
+      clearEffects();
+      entrance?.cancel();
+      // Hủy chuyển động của cảnh cũ, kể cả khi người xem nhấn tiếp lúc hiệu ứng còn chạy.
+      scene.getAnimations({ subtree:true }).forEach(animation => animation.cancel());
+      pausedAnimations = [];
+      opening = false;
+      candleBusy = false;
+      document.getElementById('gift-art').classList.remove('opening');
+      current = index;
+      const item = scenes[current];
+      world.dataset.scene = item.key;
+      document.getElementById('title-main').textContent = item.title;
+      document.getElementById('title-accent').textContent = item.accent;
+      document.getElementById('eyebrow').textContent = item.eyebrow;
+      document.getElementById('scene-note').textContent = item.note;
+
+      const visible = {
+        'star-halo':['intro','mission'], 'sleep-mark':['intro'],
+        'orbit-star':['intro','mission','finale'], 'orbit-small':['intro','mission','finale'],
+        'gift-art':['parcel'], 'age-art':['reveal','finale'], 'reveal-ring':['reveal'],
+        'joy-decor':['joy'], 'courage-decor':['courage'], 'kindness-decor':['kindness'],
+        'cake-art':['cake'], 'candle-controls':['cake'], 'letter-wrap':['letter'], 'finale-sign':['finale']
+      };
+      Object.entries(visible).forEach(([id, keys]) => { document.getElementById(id).hidden = !keys.includes(item.key); });
+      visual.hidden = item.key === 'letter';
+      readAgain.hidden = item.key !== 'finale';
+      replay.hidden = item.key !== 'finale';
+      letter.open = false;
+      if (item.key === 'cake' || item.key === 'intro') resetCandles();
+      window.scrollTo({ top:0, behavior:'instant' });
+      if (focus) title.focus({ preventScroll:true });
+      if (!reducedMotion.matches && !document.hidden) {
+        entrance = scene.animate([{ opacity:0, transform:'translateY(10px)' }, { opacity:1, transform:'translateY(0)' }], { duration:420, easing:'cubic-bezier(.2,.7,.3,1)' });
+        if (['mission','courage','cake'].includes(item.key)) {
+          document.querySelector('.eyes-open').animate([
+            { transform:'scaleY(1)', offset:0 }, { transform:'scaleY(1)', offset:.38 },
+            { transform:'scaleY(.08)', offset:.4 }, { transform:'scaleY(1)', offset:.44 },
+            { transform:'scaleY(1)', offset:1 }
+          ], { duration:2000, iterations:2 });
+        }
+      }
+      if (item.key === 'reveal' || item.key === 'finale') burst('', 36);
+      if (item.key === 'joy') burst('petal', 14);
+    }
+
+    function advanceScene() {
+      const now = performance.now();
+      if (current === scenes.length - 1 || opening || now - lastAdvance < 420) return;
+      lastAdvance = now;
+      if (scenes[current].key === 'parcel' && !reducedMotion.matches) {
+        opening = true;
+        document.getElementById('gift-art').classList.add('opening');
+        openTimer = setTimeout(() => showScene(current + 1), 380);
+      } else {
+        showScene(current + 1);
+      }
+    }
+
+    function isSceneControl(target) {
+      return target.closest('button, a, input, select, textarea, summary, details, [contenteditable], [role="button"]');
+    }
+
+    // Chỉ dùng click: trình duyệt đã chuyển một lần chạm thành một click, không đăng ký thêm touchend.
+    world.addEventListener('click', event => {
+      if (event.button !== 0 || event.detail > 1 || isSceneControl(event.target) || !getSelection().isCollapsed) return;
+      advanceScene();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (!['Enter',' '].includes(event.key) || event.repeat || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || isSceneControl(event.target) || current === scenes.length - 1) return;
+      event.preventDefault();
+      advanceScene();
+    });
+
+    replayButton.addEventListener('click', () => {
+      if (current !== scenes.length - 1) return;
+      lastAdvance = performance.now();
+      showScene(0);
+    });
+
+    candleButton.addEventListener('click', () => {
+      const now = performance.now();
+      if (scenes[current].key !== 'cake' || candleBusy || now - lastCandle < 300) return;
+      lastCandle = now;
+      candlesLit = !candlesLit;
+      cake.classList.toggle('candles-out', !candlesLit);
+      candleLabel.textContent = candlesLit ? 'Thổi nến' : 'Thắp lại nến';
+      if (candlesLit) {
+        wishMessage.textContent = 'Nến lại sáng rồi. Cậu có thể ước thêm một điều nữa!';
+      } else {
+        candleBusy = true;
+        candleButton.setAttribute('aria-disabled','true');
+        wishMessage.textContent = '';
+        burst('spark', 22);
+        candleTimer = setTimeout(() => {
+          wishMessage.textContent = 'Mong điều ước của cậu sẽ thành hiện thực.';
+          candleBusy = false;
+          candleButton.removeAttribute('aria-disabled');
+        }, reducedMotion.matches ? 0 : 450);
+      }
+    });
+
+    readAgain.addEventListener('click', () => {
+      showScene(8, false);
+      letter.open = true;
+      letter.querySelector('summary').focus({ preventScroll:true });
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pausedAnimations = scene.getAnimations({ subtree:true }).filter(animation => animation.playState === 'running');
+        pausedAnimations.forEach(animation => animation.pause());
+        clearEffects();
+      } else {
+        pausedAnimations.forEach(animation => { if (animation.playState === 'paused') animation.play(); });
+        pausedAnimations = [];
+      }
+      document.body.classList.toggle('paused', document.hidden);
+    });
+
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) {
+        clearEffects();
+        scene.getAnimations({ subtree:true }).forEach(animation => animation.cancel());
+      }
+    });
+    showScene(0, false);
+  </script>
+</body>
+</html>
